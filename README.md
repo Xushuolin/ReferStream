@@ -19,8 +19,10 @@ No framework, installation, or build is required.
 
 Videos use lazy loading and native controls. Reference thumbnails retain their
 aspect ratios and remain to the left of the corresponding result. The gallery
-shows 24 curated examples covering InShot, MultiShot, longer streams, and
-successive reference arrivals.
+shows 24 distinct examples: four highlights in a 2 × 2 grid, followed by
+15 InShot examples in a 3 × 5 grid and five MultiShot examples. The highlighted
+cases do not repeat in the gallery. Smaller screens use fewer columns.
+All examples are displayed without pagination; filters and search remain available.
 
 The website media were prepared using stream copying and MP4 faststart; no new
 cuts, frame rate conversion, or generative edits were applied for this page.
