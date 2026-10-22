@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ReferStream: Interactive Subject Injection for Streaming Video Generation. Introduce new visual subjects during generation while preserving the existing scene.">
+  <meta name="theme-color" content="#f7fafc">
+  <meta property="og:title" content="ReferStream — Interactive Subject Injection">
+  <meta property="og:description" content="New visual references. A continuing video stream. Explore InShot and MultiShot examples from ReferStream Bench.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://xushuolin.github.io/ReferStream/method.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>ReferStream | Interactive Subject Injection for Streaming Video Generation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav-inner wrap">
+      <a class="wordmark" href="#top" aria-label="ReferStream home"><span class="stream-mark" aria-hidden="true"><i></i><i></i><i></i></span>ReferStream</a>
+      <nav aria-label="Main navigation"><a href="#demos">Demos</a><a href="#method">Method</a><a href="#benchmark">Benchmark</a><a href="referstream-paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top" aria-labelledby="paper-title">
+      <div class="institutions"><img class="nus-logo" src="nus.webp" alt="National University of Singapore" width="240" height="110"><img class="ncca-logo" src="ncca.png" alt="National Centre for Computer Animation, Bournemouth University" width="230" height="90"></div>
+      <p class="eyebrow">Interactive video generation</p>
+      <h1 id="paper-title"><span class="hero-name">ReferStream</span><span class="paper-title">Interactive Subject Injection<br>for Streaming Video Generation</span></h1>
+      <div class="authors"><a href="https://github.com/Xushuolin">Shuolin Xu<sup>1,5</sup></a><span>Guanyuan Li<sup>2,5</sup></span><span>Boyu Li<sup>3</sup></span><span>Peng-Tao Jiang<sup>4</sup></span><span>Hongchuan Yu<sup>1</sup></span><span>Xiaobin Hu<sup>5</sup></span><span>Shuicheng Yan<sup>5</sup></span></div>
+      <p class="affiliations"><span><sup>1</sup>Bournemouth University, NCCA</span><span><sup>2</sup>Zhejiang University</span><span><sup>3</sup>HKUST</span><span><sup>4</sup>vivo BlueImage</span><span><sup>5</sup>National University of Singapore</span></p>
+      <div class="hero-links"><a class="button primary" href="#demos"><span aria-hidden="true">▷</span> Explore demos</a><a class="button" href="referstream-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Paper</a><a class="button" href="https://github.com/Xushuolin/ReferStream" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></svg>Project source</a></div>
+      <p class="hero-summary">Bring a new subject into a video <em>while it is being generated.</em><br>New references arrive at user chosen times. The existing story continues.</p>
+    </section>
+
+    <section class="spotlight" aria-labelledby="spotlight-title">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">Reference arrives. The scene evolves.</p><h2 id="spotlight-title">New subjects. One continuing stream.</h2></div><p class="head-note">Recorded generation examples<br>Reference images on the left · Result on the right</p></div>
+        <div class="feature-tabs" role="group" aria-label="Featured examples"><button type="button" data-feature="b-015_" aria-pressed="true">Umbrella + cat</button><button type="button" data-feature="b-043_" aria-pressed="false">Bottle + raven</button><button type="button" data-feature="b-151_" aria-pressed="false">Three subjects</button><button type="button" data-feature="a-047_" aria-pressed="false">Across shots</button></div>
+        <div id="feature-player" class="feature-player" aria-live="polite"><p class="loading">Loading demo…</p></div>
+        <div class="concept-flow" aria-label="Streaming reference injection process"><div><span class="step-number">01</span><p>Establish a scene<small>Generate with the initial reference.</small></p></div><span class="flow-arrow" aria-hidden="true">→</span><div><span class="step-number">02</span><p>Supply a new reference<small>Introduce visual information during the stream.</small></p></div><span class="flow-arrow" aria-hidden="true">→</span><div><span class="step-number">03</span><p>Continue together<small>Preserve the subjects and scene already established.</small></p></div></div>
+      </div>
+    </section>
+
+    <section class="about wrap" aria-labelledby="about-title">
+      <div><p class="eyebrow">The task</p><h2 id="about-title">A reference does not have to<br>arrive before the video starts.</h2></div>
+      <div class="about-text"><p>Most subject conditioned video generators receive their visual references before generation begins. Streaming generators can respond to new text, but introducing a specific new visual subject also requires integrating its appearance with an existing scene.</p><p><strong>ReferStream</strong> studies this interaction: inject newly supplied visual references into an ongoing video, preserve established subjects and scene content, and leave previously emitted frames fixed. It operates on a frozen generator, without additional training.</p><div class="key-facts"><span>Visual references during generation</span><span>No additional training</span><span>Emitted frames stay fixed</span></div></div>
+    </section>
+
+    <section class="gallery-section wrap" id="demos" aria-labelledby="demos-title">
+      <div class="section-head"><div><p class="eyebrow">Explore the results</p><h2 id="demos-title">Meet the next subject.</h2></div><p class="head-note">Continuous shots, evolving casts,<br>and scenes that carry on.</p></div>
+      <div class="gallery-toolbar"><div class="filters" role="group" aria-label="Filter video examples"><button type="button" data-filter="all" aria-pressed="true">All examples</button><button type="button" data-filter="InShot" aria-pressed="false">InShot</button><button type="button" data-filter="MultiShot" aria-pressed="false">MultiShot</button><button type="button" data-filter="long" aria-pressed="false">Long videos</button><button type="button" data-filter="multiple" aria-pressed="false">Multiple arrivals</button></div><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search a subject or scene" aria-label="Search a subject or scene"></label></div>
+      <p class="gallery-context" id="gallery-context">InShot introduces subjects within one continuous shot. MultiShot introduces references across shot transitions.</p>
+      <div class="gallery-status"><p id="result-count" role="status" aria-live="polite"></p><span>Click a reference to enlarge · Expand prompts for the original instructions</span></div>
+      <div id="gallery" class="gallery"></div><p id="no-results" class="no-results" hidden>No matching examples. Try “cat”, “garden”, or another filter.</p>
+      <div class="load-wrap"><button type="button" class="button" id="load-more">Show more examples <span aria-hidden="true">↓</span></button></div>
+      <noscript><p>Please enable JavaScript to browse the video gallery. The paper is available from the link above.</p></noscript>
+    </section>
+
+    <section class="method-section" id="method" aria-labelledby="method-title"><div class="wrap"><div class="section-head"><div><p class="eyebrow">How it works</p><h2 id="method-title">Integrate the reference.<br>Keep the scene.</h2></div><p class="method-lead">Two complementary operations control how a new reference enters the generator’s memory.</p></div><figure class="method-figure"><a href="method.webp" target="_blank" rel="noopener" aria-label="Open full size method diagram"><img src="method.webp" width="2200" height="1200" loading="lazy" alt="ReferStream streaming reference injection and cache update mechanism"></a><figcaption>Reference conditioning is introduced during causal streaming. Previously emitted frames are not revised.</figcaption></figure><div class="method-notes"><article><span class="module-index">01 / Reference construction</span><h3>Joint Latent</h3><p>Place reference latents in target regions of the latest clean scene latent. Reference features are extracted in the context of the scene into which the subject will enter.</p></article><article><span class="module-index">02 / Transient conditioning</span><h3>Cache Restoration</h3><p>Use the reference features to condition the injection chunk, then restore the overwritten global cache entries. The newly generated history remains available to carry the subject forward.</p></article></div></div></section>
+
+    <section class="benchmark-section wrap" id="benchmark" aria-labelledby="bench-title"><div class="bench-copy"><p class="eyebrow">ReferStream Bench</p><h2 id="bench-title">Evaluate the arrival.<br>And what stays.</h2><p>Reference arrival changes what information is available to a streaming generator. ReferStream Bench pairs visual references with evolving prompts and explicit subject presence annotations, covering both InShot and MultiShot generation.</p><p>Evaluation considers new subject fidelity and established subject preservation alongside video quality, text adherence, and count accuracy.</p><a class="text-link" href="referstream-paper.pdf" target="_blank" rel="noopener">Read the benchmark and evaluation protocol <span aria-hidden="true">↗</span></a></div><figure><a href="benchmark.webp" target="_blank" rel="noopener"><img src="benchmark.webp" width="1800" height="1100" loading="lazy" alt="ReferStream Bench statistics from the paper, covering subject diversity and benchmark characteristics"></a></figure></section>
+
+    <section class="citation-section wrap" aria-labelledby="citation-title"><div class="section-head"><div><p class="eyebrow">Reference</p><h2 id="citation-title">Citation</h2></div><button type="button" class="button small" id="copy-citation">Copy BibTeX</button></div><pre id="citation">@misc{xu2026referstream,
+  title={ReferStream: Interactive Subject Injection for Streaming Video Generation},
+  author={Shuolin Xu and Guanyuan Li and Boyu Li and Peng-Tao Jiang and
+          Hongchuan Yu and Xiaobin Hu and Shuicheng Yan},
+  year={2026},
+  howpublished={Project page},
+  url={https://xushuolin.github.io/ReferStream/}
+}</pre><p id="copy-status" role="status" aria-live="polite"></p></section>
+  </main>
+  <footer class="footer wrap"><span>ReferStream · Interactive Subject Injection</span><div><a href="https://github.com/Xushuolin/ReferStream" target="_blank" rel="noopener">GitHub</a><a href="#top">Back to top ↑</a></div></footer>
+  <dialog id="reference-dialog"><button type="button" class="dialog-close" aria-label="Close reference image">×</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog>
+</body>
+</html>
