@@ -12,9 +12,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>ReferStream | Interactive Subject Injection for Streaming Video Generation</title>
-  <link rel="stylesheet" href="style.css?v=20261022-grid2">
+  <link rel="stylesheet" href="style.css?v=20261026-banner1">
   <script src="data.js" defer></script>
-  <script src="app.js?v=20261022-grid2" defer></script>
+  <script src="app.js?v=20261026-banner1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -26,15 +26,25 @@
   </header>
 
   <main id="main">
-    <section class="hero wrap" id="top" aria-labelledby="paper-title">
+    <section class="hero" id="top" aria-labelledby="paper-title">
+      <div class="hero-media" aria-hidden="true">
+        <picture><source media="(max-width: 760px)" srcset="hero/injection-mobile.webp"><img src="hero/injection-desktop.webp" width="1532" height="848" alt="" fetchpriority="high"></picture>
+        <video id="hero-video" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture data-desktop="hero/injection-desktop.mp4" data-mobile="hero/injection-mobile.mp4"></video>
+      </div>
+      <div class="hero-content wrap">
       <div class="institutions"><img class="nus-logo" src="nus.webp" alt="National University of Singapore" width="240" height="110"><img class="ncca-logo" src="ncca.png" alt="National Centre for Computer Animation, Bournemouth University" width="230" height="90"></div>
       <p class="eyebrow">Interactive video generation</p>
       <h1 id="paper-title"><span class="hero-name">ReferStream</span><span class="paper-title">Interactive Subject Injection<br>for Streaming Video Generation</span></h1>
-      <div class="authors"><div class="author-row"><a href="https://github.com/Xushuolin">Shuolin Xu<sup>1,2</sup></a><span>Guanyuan Li<sup>2,3</sup></span><span>Boyu Li<sup>4</sup></span><span>Kelu Yao<sup>5</sup></span></div><div class="author-row"><span>Xiaogang Xu<sup>3</sup></span><span>Hongchuan Yu<sup>1</sup></span><span>Shuicheng Yan<sup>2</sup></span><span>Xiaobin Hu<sup>2</sup></span></div></div>
-      <div class="affiliations"><div class="affiliation-row"><span><sup>1</sup>Bournemouth University, NCCA, UK</span><span><sup>2</sup>National University of Singapore</span></div><div class="affiliation-row"><span><sup>3</sup>Zhejiang University</span><span><sup>4</sup>HKUST</span><span><sup>5</sup>Zhejiang Lab</span></div></div>
       <div class="hero-links"><a class="button primary" href="#demos"><span aria-hidden="true">▷</span> Explore demos</a><a class="button" href="referstream-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Paper</a><a class="button" href="https://github.com/Xushuolin/ReferStream" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></svg>Project source</a></div>
       <p class="hero-summary">Bring a new subject into a video <em>while it is being generated.</em><br>New references arrive at user chosen times. The existing story continues.</p>
+      </div>
+      <div class="hero-foot wrap"><span>New references. A continuing stream.</span><button class="hero-motion" id="hero-motion" type="button" aria-label="Pause background video" hidden><span class="motion-icon" aria-hidden="true">Ⅱ</span><span class="motion-label">Pause background</span></button></div>
     </section>
+
+    <div class="paper-meta wrap" aria-label="Authors and affiliations">
+      <div class="authors"><div class="author-row"><a href="https://github.com/Xushuolin">Shuolin Xu<sup>1,2</sup></a><span>Guanyuan Li<sup>2,3</sup></span><span>Boyu Li<sup>4</sup></span><span>Kelu Yao<sup>5</sup></span></div><div class="author-row"><span>Xiaogang Xu<sup>3</sup></span><span>Hongchuan Yu<sup>1</sup></span><span>Shuicheng Yan<sup>2</sup></span><span>Xiaobin Hu<sup>2</sup></span></div></div>
+      <div class="affiliations"><div class="affiliation-row"><span><sup>1</sup>Bournemouth University, NCCA, UK</span><span><sup>2</sup>National University of Singapore</span></div><div class="affiliation-row"><span><sup>3</sup>Zhejiang University</span><span><sup>4</sup>HKUST</span><span><sup>5</sup>Zhejiang Lab</span></div></div>
+    </div>
 
     <section class="spotlight" aria-labelledby="spotlight-title">
       <div class="wrap">

@@ -56,7 +56,7 @@
     document.querySelectorAll('video[data-src]:not([data-bound])').forEach(v=>{
       v.dataset.bound='true';
       if(observer) observer.observe(v); else loadVideo(v);
-      v.addEventListener('play',()=>document.querySelectorAll('video').forEach(other=>{if(other!==v)other.pause();}));
+      v.addEventListener('play',()=>document.querySelectorAll('video[data-demo]').forEach(other=>{if(other!==v)other.pause();}));
       v.addEventListener('error',()=>{
         if(v.parentElement.querySelector('.video-error'))return;
         const message=document.createElement('p');message.className='video-error';
@@ -95,4 +95,70 @@
   });
   $('#featured-grid').innerHTML=featuredCases.map(d=>card(d,true)).join('');
   renderGallery();
+})();
+
+// Decorative background: one decoder, no audio, and no playback off screen.
+(() => {
+  const hero = document.querySelector('.hero');
+  const video = document.querySelector('#hero-video');
+  const button = document.querySelector('#hero-motion');
+  if (!hero || !video || !button) return;
+  const mobile = window.matchMedia('(max-width: 760px)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const connection = navigator.connection;
+  let requested = !reduced.matches && !connection?.saveData;
+  let visible = true;
+  video.muted = true;
+  button.hidden = false;
+
+  function updateControl() {
+    button.setAttribute('aria-label', requested ? 'Pause background video' : 'Play background video');
+    button.querySelector('.motion-label').textContent = requested ? 'Pause background' : 'Play background';
+    button.querySelector('.motion-icon').textContent = requested ? 'Ⅱ' : '▷';
+  }
+
+  function updatePlayback() {
+    updateControl();
+    const variant = mobile.matches ? 'mobile' : 'desktop';
+    if (video.dataset.variant !== variant) video.classList.remove('is-ready');
+    if (!requested || !visible || document.hidden) {
+      video.pause();
+      return;
+    }
+    if (video.dataset.variant !== variant) {
+      video.dataset.variant = variant;
+      video.src = video.dataset[variant];
+      video.load();
+    }
+    video.play().catch(error => {
+      // A visibility change can interrupt an otherwise valid play request.
+      if (error.name === 'AbortError' || !visible || document.hidden) return;
+      requested = false;
+      updateControl();
+    });
+  }
+
+  video.addEventListener('playing', () => video.classList.add('is-ready'));
+  video.addEventListener('error', () => {
+    video.classList.remove('is-ready');
+    requested = false;
+    updateControl();
+  });
+  button.addEventListener('click', () => { requested = !requested; updatePlayback(); });
+  document.addEventListener('visibilitychange', updatePlayback);
+  mobile.addEventListener('change', updatePlayback);
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) requested = false;
+    updatePlayback();
+  });
+  if (connection?.addEventListener) connection.addEventListener('change', () => {
+    if (connection.saveData) requested = false;
+    updatePlayback();
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      updatePlayback();
+    }, {threshold: 0}).observe(hero);
+  } else updatePlayback();
 })();

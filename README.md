@@ -24,8 +24,11 @@ shows 24 distinct examples: four highlights in a 2 × 2 grid, followed by
 cases do not repeat in the gallery. Smaller screens use fewer columns.
 All examples are displayed without pagination; filters and search remain available.
 
-The website media were prepared using stream copying and MP4 faststart; no new
-cuts, frame rate conversion, or generative edits were applied for this page.
+Full gallery videos were prepared using stream copying and MP4 faststart, with no new
+cuts, frame rate conversion, or generative edits. The banner alone uses 6-second
+excerpts (4.25–10.25 s) of existing outputs, resized into desktop/mobile collages.
+These showcase excerpts illustrate visible arrivals; their cut points are not
+annotations of exact model injection times. The original results remain below.
 Gallery durations are measured from the media files. Prompt stages describe
 the source instructions; they do not assert exact timestamps in the outputs.
 
@@ -38,3 +41,12 @@ The presentation is independently implemented, with layout inspiration from
 [HOMIE](https://yiyangcai.github.io/homie-page.github.io/) and
 [EditStream](https://real-time-video-research.github.io/editstream/).
 Institutional marks remain the property of their respective institutions.
+
+## Banner background
+
+`hero/` contains a 3 × 3 desktop montage and a 2 × 4 mobile montage, each
+6 seconds long with no audio. Static WebP posters cover loading, disabled
+autoplay, reduced motion, and data saver preferences. Background playback
+pauses outside the banner and when the tab is hidden; the visitor can pause it.
+Regenerate with `tools/generate_hero.py --ffmpeg /path/to/ffmpeg` from the
+parent project. `hero_clip_manifest.json` records the source clips.

@@ -12,6 +12,36 @@
 
 .reference-thumb.ref-scene .ref-letter{background:#e7eaed;color:#71818c}
 
+/* A single silent montage keeps the opening video wall inexpensive to play. */
+.hero{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:650px;padding:30px 0 78px;display:flex;align-items:center;justify-content:center;background:#132b37;color:#fff}
+.hero-media,.hero-media picture,.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.hero-media{z-index:-2}
+.hero-media video{opacity:0;transition:opacity .5s}
+.hero-media video.is-ready{opacity:1}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#0c202a50 0%,#0c202aa6 35%,#0c202ab3 62%,#0c202a73 100%);pointer-events:none}
+.hero-content{position:relative;padding-top:4px}
+.hero .institutions{max-width:1050px;height:66px;margin-bottom:26px}
+.hero .institutions img{height:62px;background:#fffffff0;border-radius:8px;padding:7px 10px;box-shadow:0 4px 20px #06151b15}
+.hero .institutions .ncca-logo{height:48px;max-width:190px;padding:9px 12px}
+.hero .eyebrow{color:#c3f0eb;letter-spacing:.2em;margin-bottom:13px}
+.hero .hero-name{font-size:clamp(62px,7.4vw,94px);color:#fff;background:none;-webkit-text-fill-color:currentColor;text-shadow:0 3px 25px #06151b33}
+.hero .paper-title{font-size:clamp(27px,3.3vw,43px);line-height:1.22;color:#fff;text-shadow:0 2px 16px #06151b44;margin-top:13px}
+.hero .hero-summary{font-size:16px;line-height:1.7;max-width:720px;margin:24px auto 0;color:#e3eef1;text-shadow:0 1px 10px #06151b66}
+.hero .hero-summary em{color:#fff;font-weight:600}
+.hero .hero-links{margin-top:27px}
+.hero .button{color:#fff;background:#ffffff14;border-color:#ffffff66;backdrop-filter:blur(12px)}
+.hero .button:hover{background:#ffffff2e}
+.hero .button.primary{color:#123b42;background:#d5f4ed;border-color:#d5f4ed}
+.hero .button.primary:hover{background:#f0fffa}
+.hero-foot{position:absolute;bottom:21px;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#edf5f6;font-size:10px;letter-spacing:.04em}
+.hero-motion{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:#fff;background:#09232c66;border:1px solid #ffffff5c;padding:7px 12px;border-radius:30px;backdrop-filter:blur(8px)}
+.hero-motion:hover{background:#09232ca8}
+.motion-icon{font-size:12px;line-height:1;width:11px;text-align:center}
+.paper-meta{text-align:center;padding:30px 0 31px}
+.paper-meta .authors{margin:0 auto 10px}
+@media(min-width:1700px){.hero{min-height:730px}}
+@media(max-width:760px){.hero{min-height:620px;padding:22px 0 70px}.hero .institutions{height:48px;margin-bottom:36px}.hero .institutions .nus-logo{height:46px;padding:5px 7px}.hero .institutions .ncca-logo{height:36px;max-width:145px;padding:6px 8px}.hero .hero-name{font-size:clamp(50px,10.5vw,70px)}.hero .paper-title{font-size:clamp(24px,5.8vw,32px);line-height:1.25}.hero .hero-summary{font-size:13px;max-width:420px;margin-top:22px}.hero .hero-summary br{display:none}.hero .hero-links{gap:7px;margin-top:25px}.hero .button{padding:9px 13px;font-size:11px}.hero-foot{bottom:18px;font-size:9px}.hero-foot>span{max-width:170px}.hero-motion{font-size:9px;padding:6px 9px}.paper-meta{padding-block:25px}.paper-meta .authors{font-size:13px}.paper-meta .affiliations{font-size:10px}}
+
 /* Section names lead the hierarchy; supporting taglines remain secondary. */
 .section-title{color:#218d88;font-size:clamp(32px,3.2vw,42px);font-weight:700;letter-spacing:-.035em;line-height:1.15;margin-bottom:12px}
 .section-subtitle{font-size:clamp(18px,1.9vw,23px);font-weight:500;line-height:1.4;letter-spacing:-.02em;color:#5b7181}
