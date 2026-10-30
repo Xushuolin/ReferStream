@@ -1,52 +1,38 @@
-# ReferStream project page
+# ReferStream: Interactive Subject Injection for Streaming Video Generation
 
-Interactive Subject Injection for Streaming Video Generation.
+**Shuolin Xu, Guanyuan Li, Boyu Li, Kelu Yao, Xiaogang Xu, Hongchuan Yu, Shuicheng Yan, Xiaobin Hu**
 
-Static project website: https://xushuolin.github.io/ReferStream/
+[Project page and demos](https://xushuolin.github.io/ReferStream/) · [Paper (arXiv)](https://arxiv.org/abs/2610.37566)
 
-## Local preview
+ReferStream enables new visual subjects to be introduced into a video while it is being generated. It integrates newly provided reference images with the current scene while retaining established subjects, scene context, and previously generated frames. The method operates without additional training and combines **Joint Latent**, which constructs reference features in the current scene context, with **Cache Restoration**, which restores the original global cache after a transient reference injection.
 
-Run `python3 -m http.server 8000` in this folder, then open http://localhost:8000.
-No framework, installation, or build is required.
+We also introduce **ReferStream Bench** for evaluating interactive subject injection with scheduled reference arrivals, evolving prompts, and subject presence annotations across InShot and MultiShot settings. Visit the project page for the method overview and selected demonstrations.
 
-## Contents
+## Repository
 
-- `index.html`, `style.css`, `app.js`: presentation and interactions.
-- `data.js`: demo metadata, original prompts, and resized reference/poster images.
-- `a-*.mp4`, `b-*.mp4`: recorded MultiShot and InShot results.
-- `referstream-paper.pdf`: accompanying manuscript.
-- `method.webp`, `benchmark.webp`, `nus.webp`, `ncca.png`: paper figures and institution marks.
+This repository currently hosts the project website and its demonstration assets. Inference code is not yet included.
 
-Videos use lazy loading and native controls. Reference thumbnails retain their
-aspect ratios and remain to the left of the corresponding result. The gallery
-shows 24 distinct examples: four highlights in a 2 × 2 grid, followed by
-15 InShot examples in a 3 × 5 grid and five MultiShot examples. The highlighted
-cases do not repeat in the gallery. Smaller screens use fewer columns.
-All examples are displayed without pagination; filters and search remain available.
+- `index.html`, `style.css`, `app.js`, `data.js`: project page and demo metadata.
+- `demo_videos/`: full demonstration videos used in the page.
+- `hero/`: short background video montages and their posters.
+- `method.webp`, `benchmark.webp`, `nus.webp`, `ncca.png`: figures and institution logos.
+- `referstream-paper.pdf`: a bundled manuscript copy; see the arXiv link above for the current version.
 
-Full gallery videos were prepared using stream copying and MP4 faststart, with no new
-cuts, frame rate conversion, or generative edits. The banner alone uses 6-second
-excerpts (4.25–10.25 s) of existing outputs, resized into desktop/mobile collages.
-These showcase excerpts illustrate visible arrivals; their cut points are not
-annotations of exact model injection times. The original results remain below.
-Gallery durations are measured from the media files. Prompt stages describe
-the source instructions; they do not assert exact timestamps in the outputs.
+To preview the page locally, run `python3 -m http.server 8000` from the repository root and open `http://localhost:8000`. GitHub Pages serves the site from the root of the `main` branch.
 
-## Hosting
+## Citation
 
-GitHub Pages: deploy from the `main` branch, repository root.
-The `.nojekyll` file enables direct static serving.
+If you find this work useful, please cite:
 
-The presentation is independently implemented, with layout inspiration from
-[HOMIE](https://yiyangcai.github.io/homie-page.github.io/) and
-[EditStream](https://real-time-video-research.github.io/editstream/).
-Institutional marks remain the property of their respective institutions.
-
-## Banner background
-
-`hero/` contains a 3 × 3 desktop montage and a 2 × 4 mobile montage, each
-6 seconds long with no audio. Static WebP posters cover loading, disabled
-autoplay, reduced motion, and data saver preferences. Background playback
-pauses outside the banner and when the tab is hidden; the visitor can pause it.
-Regenerate with `tools/generate_hero.py --ffmpeg /path/to/ffmpeg` from the
-parent project. `hero_clip_manifest.json` records the source clips.
+```bibtex
+@misc{xu2026referstream,
+  title         = {ReferStream: Interactive Subject Injection for Streaming Video Generation},
+  author        = {Shuolin Xu and Guanyuan Li and Boyu Li and Kelu Yao and
+                   Xiaogang Xu and Hongchuan Yu and Shuicheng Yan and Xiaobin Hu},
+  year          = {2026},
+  eprint        = {2610.37566},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2610.37566}
+}
+```
